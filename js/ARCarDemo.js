@@ -39,7 +39,7 @@ var ARCarDemo = createReactClass({
               // sphere 1
               // onClick={this._selectGrey}
               // animation={{name:"tapAnimation", run:this.state.tapGrey, onFinish:this._animateFinished}}
-              // 
+              //
               // sphere 2
               // animation={{name:"orbit", run:true, loop:true}}
 
@@ -59,67 +59,32 @@ var ARCarDemo = createReactClass({
 
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
 
-<<<<<<< HEAD
-        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} onAnchorUpdated={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <ViroNode scale={[0, 0, 0]} transformBehaviors={["billboardY"]} animation={{name:"scaleSphereUp", run:this.state.animateCar,}}>
-||||||| merged common ancestors
-        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <ViroNode scale={[0, 0, 0]} transformBehaviors={["billboardY"]} animation={{name:"scaleSphereUp", run:this.state.animateCar,}}>
-=======
         <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
           <ViroNode scale={[0, 0, 0]} rotationPivot={this.state.rotationPiv} transformBehaviors={["billboardY"]} animation={{name:"scaleSphereUp", run:this.state.animateCar,}}>
->>>>>>> 15b04e76ab0d49bf296850b4e9d8755c981a92f2
             <ViroSphere materials={["yellow_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={.1}
               position={[0, 0, 0]}
               shadowCastingBitMask={0} />
 
-<<<<<<< HEAD
-            <ViroSphere materials={["blue_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[0, -.1, 0]}
-              animation={{name:"orbit", run:true, loop:true}}
-||||||| merged common ancestors
-            <ViroSphere materials={["blue_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.005}
-              position={[0, -.1, 0]}
-              animation={{name:"orbit", run:true, loop:true}}
-=======
             <ViroSphere materials={["white_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={.07}
               position={[0, 0, -0.5]}
               animation={{name:"orbit", run:this.state.orbitAnim, loop:true}}
->>>>>>> 15b04e76ab0d49bf296850b4e9d8755c981a92f2
               shadowCastingBitMask={0} />
           </ViroNode>
         </ViroARImageMarker>
       </ViroARScene>
     );
   },
-<<<<<<< HEAD
-  _onAnchorFound(anchorMap) {
-||||||| merged common ancestors
-  _onAnchorFound() {
-=======
   _onAnchorFound(anchor) {
->>>>>>> 15b04e76ab0d49bf296850b4e9d8755c981a92f2
     this.setState({
       animateCar: true,
-<<<<<<< HEAD
-    });
-    console.log('x:' + anchorMap.position[0]);
-    console.log('y:' + anchorMap.position[1]);
-    console.log('z:' + anchorMap.position[2]);
-||||||| merged common ancestors
-    })
-=======
       rotationPiv: anchor.position,
       orbitAnim: true
     })
 
     console.log('hi')
     console.log(anchor)
->>>>>>> 15b04e76ab0d49bf296850b4e9d8755c981a92f2
   },
 });
 
@@ -150,13 +115,6 @@ ViroARTrackingTargets.createTargets({
   "logo" : {
     source : require('./res/logo.png'),
     orientation : "Up",
-<<<<<<< HEAD
-    physicalWidth : 0.1 // real world width in meters
-  }
-||||||| merged common ancestors
-    physicalWidth : 0.165 // real world width in meters
-  }
-=======
     physicalWidth : 0.150 // real world width in meters
   },
   "poster" : {
@@ -169,7 +127,6 @@ ViroARTrackingTargets.createTargets({
     orientation : "Up",
     physicalWidth : 0.1 // real world width in meters
   },
->>>>>>> 15b04e76ab0d49bf296850b4e9d8755c981a92f2
 });
 
 ViroAnimations.registerAnimations({
