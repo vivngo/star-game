@@ -49,7 +49,7 @@ var ARCarDemo = createReactClass({
               shadowCastingBitMask={0} />
 
             <ViroSphere materials={["blue_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.005}
+              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
               position={[0, -.1, 0]}
               animation={{name:"orbit", run:true, loop:true}}
               shadowCastingBitMask={0} />
@@ -95,7 +95,7 @@ ViroARTrackingTargets.createTargets({
   logo : {
     source : require('./res/logo.png'),
     orientation : "Up",
-    physicalWidth : 0.165 // real world width in meters
+    physicalWidth : 0.1 // real world width in meters
   }
 });
 
