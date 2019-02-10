@@ -41,7 +41,7 @@ var ARCarDemo = createReactClass({
 
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
 
-        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+        <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} onAnchorUpdated={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
           <ViroNode scale={[0, 0, 0]} transformBehaviors={["billboardY"]} animation={{name:"scaleSphereUp", run:this.state.animateCar,}}>
             <ViroSphere materials={["yellow_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={.1}
@@ -58,10 +58,13 @@ var ARCarDemo = createReactClass({
       </ViroARScene>
     );
   },
-  _onAnchorFound() {
+  _onAnchorFound(anchorMap) {
     this.setState({
       animateCar: true,
-    })
+    });
+    console.log('x:' + anchorMap.position[0]);
+    console.log('y:' + anchorMap.position[1]);
+    console.log('z:' + anchorMap.position[2]);
   },
 });
 
