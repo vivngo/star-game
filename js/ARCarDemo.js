@@ -42,52 +42,16 @@ var ARCarDemo = createReactClass({
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
 
         <ViroARImageMarker target={"logo"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <ViroNode scale={[0, 0, 0]} transformBehaviors={["billboardY"]} animation={{name:this.state.animName, run:this.state.playAnim,}}>
-            <ViroSphere materials={["white_sphere"]}
+          <ViroNode scale={[0, 0, 0]} transformBehaviors={["billboardY"]} animation={{name:"scaleSphereUp", run:this.state.animateCar,}}>
+            <ViroSphere materials={["yellow_sphere"]}
               heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[-.2, .25, 0]}
-              onClick={this._selectWhite}
-              animation={{name:"tapAnimation", run:this.state.tapWhite, onFinish:this._animateFinished}}
-              shadowCastingBitMask={0} />
-
-            <ViroSphere materials={["blue_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[-.1, .25, 0]}
-              onClick={this._selectBlue}
-              animation={{name:"tapAnimation", run:this.state.tapBlue, onFinish:this._animateFinished}}
-              shadowCastingBitMask={0} />
-
-            <ViroSphere materials={["grey_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[0, .25, 0]}
+              position={[0, 0, 0]}
               onClick={this._selectGrey}
               animation={{name:"tapAnimation", run:this.state.tapGrey, onFinish:this._animateFinished}}
               shadowCastingBitMask={0} />
-
-            <ViroSphere materials={["red_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[.1, .25, 0]}
-              onClick={this._selectRed}
-              animation={{name:"tapAnimation", run:this.state.tapRed, onFinish:this._animateFinished}}
-              shadowCastingBitMask={0} />
-
-            <ViroSphere materials={["yellow_sphere"]}
-              heightSegmentCount={20} widthSegmentCount={20} radius={.03}
-              position={[.2, .25, 0]}
-              onClick={this._selectYellow}
-              animation={{name:"tapAnimation", run:this.state.tapYellow, onFinish:this._animateFinished}}
-              shadowCastingBitMask={0}/>
           </ViroNode>
 
-          <Viro3DObject
-            scale={[0, 0, 0]}
-            source={require('./res/tesla/object_car.obj')}
-            resources={[require('./res/tesla/object_car.mtl'),
-                        ]}
-            type="OBJ"
-            materials={this.state.texture}
-            onClick={this._toggleButtons}
-            animation={{name:"scaleCar", run:this.state.animateCar,}} />
+
 
           <ViroSpotLight
             innerAngle={5}
